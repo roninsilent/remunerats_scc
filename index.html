@@ -1,157 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Gestió Remunerats SCC</title>
-  <link rel="stylesheet" href="./css/styles.css" />
+  <meta http-equiv="Content-Type" content="charset=UTF-8" />
+  <title>Autenticación con Firebase en 5 minutos</title>
 </head>
 <body>
-  <nav class="navbar navbar--sticky">
-    <ul class="navbar-list">
-      <li class="navbar-item">
-        <a
-          class="navbar-link"
-          style="--navbarLinkIcon: url(../images/github_favicon.png);"
-          href="https://intranet.ajuntament.bcn/"
-        >
-          Accés Intranet
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <main role="application">
-    <header class="hero">
-      <article class="hero-info">
-        <h1 class="hero-title">
-          Gestió Remunerats SCC
-        </h1>
-        <p class="hero-description">
-          Prova per gestionar serveis remunerats
-        </p>
-      </article>
-    </header>
-
-    <section class="appInfo">
-      <article class="privateInfo">
-        <h2 class="privateInfo-title">Informaciò Privada i delicada</h2>
-        
-        <div id="loginFormUI" class="form-container">
-          <p>Inici de sessió...</p>
-
-          <form class="loginForm" name="loginForm">
-            <input
-              class="input"
-              type="email"
-              name="email"
-              placeholder="Correu electrònic"
-              required
-            />
-            <input
-              class="input"
-              type="password"
-              name="password"
-              placeholder="Contrasenya"
-              required
-            />
-            
-            <div class="form-radioContainer">
-              <input type="radio" name="isLoginOrSignup" id="radioIsLogin" value="isLogin" checked />
-              <label for="radioIsLogin">Login</label>
-
-              <input type="radio" name="isLoginOrSignup" id="radioIsSignup" value="isSignup" />
-              <label for="radioIsSignup">SignUp</label>
-            </div>
-          <button id="btnLogin" class="button">Iniciar sessió</button>
-            
-          </form>
-        </div>
-
-        <div id="hiddenPrivateInfo">
-          <p class="loading">Pensant...</p>
-        </div>
-        <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js">
-        &lt;script&gt;
-        <script/>
-        // Initialize Firebase
-          var config = {
-      apiKey: "AIzaSyCkt4X2z93XeQB5_Yr2ZEPDx0ej4WnpHbc",
-    authDomain: "remunerats.firebaseapp.com",
-  projectId: "remunerats",
-  storageBucket: "remunerats.appspot.com",
-  messagingSenderId: "210093843883",
-  appId: "1:210093843883:web:ce937c75f066831c065eee",
-  measurementId: "G-RQYRN6G16K"
-      };
-        firebase.initializeApp(config);
-      &lt;script&gt;        
-      </article>
-      
-      <article class="publicInfo">
-        <h2 class="privateInfo-title">Informaciò General</h2>
-      
-        <p>Public content :D</p>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p class="footer-text">
-        Projecte SCC
-      </p>
-      <p class="footer-text">
-        .
-      </p>
-    </div>
-
-    <div class="footer-content">
-      <ul class="footer-list">
-        <li class="footer-item">
-          <a
-            class="footer-link"
-            href="."
-            target="blank"
-          >
-            .
-          </a>
-        </li>
-        <li class="footer-item">
-          <a
-            class="footer-link"
-            href="."
-            target="blank"
-          >
-            .
-          </a>
-        </li>
-        <li class="footer-item">
-          <a
-            class="footer-link"
-            href="."
-            target="blank"
-          >
-            .
-          </a>
-        </li>
-        <li class="footer-item">
-          <a
-            class="footer-link"
-            href="."
-            target="blank"
-          >
-            .
-          </a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-
-  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+  <h2>Información Privada</h2>
   
-  <script src="./js/app.js"></script>
+  <div id="loginFormUI">
+    <p>Por favor inicia sesión para acceder a tu información</p>
+  
+    <form name="loginForm">
+      <input
+        type="email"
+        name="email"
+        placeholder="Correo Electronico"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Contraseña"
+        required
+      />
+      <input
+        type="radio"
+        name="isLoginOrSignup"
+        id="radioIsLogin"
+        value="isLogin"
+        checked
+      />
+      <label for="radioIsLogin">Entrar a mi cuenta</label>
+
+      <input
+        type="radio"
+        name="isLoginOrSignup"
+        id="radioIsSignup"
+        value="isSignup"
+      />
+      <label for="radioIsSignup">Crear cuenta</label>
+
+      <button id="btnLogin">Acceder</button>
+    </form>
+  </div>
+  
+  <div id="privateInfo">
+    <p class="loading">Cargando...</p>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js">
+  &lt;script&gt;
+  <script/>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCkt4X2z93XeQB5_Yr2ZEPDx0ej4WnpHbc",
+      authDomain: "remunerats.firebaseapp.com",
+      projectId: "remunerats",
+      storageBucket: "remunerats.appspot.com",
+      messagingSenderId: "210093843883",
+      appId: "1:210093843883:web:ce937c75f066831c065eee",
+      measurementId: "G-RQYRN6G16K"
+    };
+    firebase.initializeApp(config);
+  &lt;script&gt;
 </body>
 </html>
